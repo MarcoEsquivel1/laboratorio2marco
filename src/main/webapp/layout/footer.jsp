@@ -5,7 +5,7 @@
   Time: 1:17
   To change this template use File | Settings | File Templates.
 --%>
-
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </div>

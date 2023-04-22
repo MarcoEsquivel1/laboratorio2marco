@@ -13,6 +13,8 @@ import java.util.List;
 import services.empleadoService;
 import models.EmpleadosEntity;
 
+import static java.lang.System.out;
+
 @WebServlet(name = "empleados", urlPatterns = {"/empleados", "/empleados/create", "/empleados/update", "/empleados/delete", "/empleados/save", "/empleados/edit" , "/empleados/destroy"})
 public class empleados extends HttpServlet {
     empleadoService empleadoService = new empleadoService();
@@ -161,6 +163,7 @@ public class empleados extends HttpServlet {
             Date dateFormateada = formato.parse(request.getParameter("fecha").toString());
             String nombre = request.getParameter("nombre");
             BigDecimal salario = BigDecimal.valueOf(Double.parseDouble(request.getParameter("salario")));
+            out.println(salario);
 
             empleado = (EmpleadosEntity) empleadoService.buscar(id);
             empleado.setNombre(nombre);
@@ -178,7 +181,7 @@ public class empleados extends HttpServlet {
     }
 
     private void destroyEmpleado(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String view = "../views/empleado/EmpleadoDelete.jsp";
+        String view = "../views/empleado/EmpleadoDlete.jsp";
         try {
             int id = Integer.parseInt(request.getParameter("id"));
             empleadoService.eliminar(id);

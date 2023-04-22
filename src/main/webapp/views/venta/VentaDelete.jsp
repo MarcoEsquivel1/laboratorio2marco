@@ -9,7 +9,7 @@
 <jsp:include page="/layout/nav.jsp"></jsp:include>
 <h1 class="mb-5" style="text-align: center">Eliminar venta</h1>
 
-<c:if test="${not empty pedido}">
+<c:if test="${not empty venta}">
     <div class="alert alert-danger" role="alert">
         <h4 class="alert-heading">¿Está seguro de eliminar la venta?</h4>
         <p>Total: ${venta.totalventa}</p>
@@ -17,9 +17,9 @@
 
         <hr>
         <form action="${pageContext.request.contextPath}/ventas/destroy" method="post">
-            <input type="hidden" name="id" value="${venta.id_venta}">
+            <input type="hidden" name="id" value="${venta.idVenta}">
             <button type="submit" class="btn btn-danger">Eliminar</button>
-            <a href="${pageContext.request.contextPath}/ventas" class="btn btn-primary">Cancelar</a>
+            <a href="${pageContext.request.contextPath}/ventas?id=${venta.idEmpleado}" class="btn btn-secondary">Cancelar</a>
         </form>
     </div>
 </c:if>

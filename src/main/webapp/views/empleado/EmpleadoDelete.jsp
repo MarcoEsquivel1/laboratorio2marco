@@ -17,9 +17,10 @@
         <p>Fecha de contratación: ${empleado.fechacontratacion}</p>
         <p>Salario: ${empleado.salario}</p>
     </div>
-    <form action="/empleado/eliminar" method="post">
+    <form action="${pageContext.request.contextPath}/empleados/destroy" method="post">
         <input type="hidden" name="id" value="${empleado.idEmpleado}">
         <button type="submit" class="btn btn-danger">Eliminar</button>
+        <a href="${pageContext.request.contextPath}/empleados" class="btn btn-secondary">Cancelar</a>
 </c:if>
 
 <jsp:include page="/layout/footer.jsp"></jsp:include>

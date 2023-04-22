@@ -13,18 +13,19 @@
             ${error}
     </div>
 </c:if>
-<form action="${pageContext.request.contextPath}/pedidos/update" method="post">
+<form action="${pageContext.request.contextPath}/ventas/update" method="post">
     <input type="hidden" name="id" value="${venta.idVenta}">
     <div class="form-group my-3">
         <label for="total">Total</label>
-        <input type="number" step="0.01" class="form-control" id="total" name="total" value="${venta.totalventa}"  required>
+        <input type="number" min="0" step="0.01" class="form-control" id="total" name="total" value="${venta.totalventa}"  required>
     </div>
     <div class="form-group my-3">
         <label for="fecha">Fecha</label>
         <input type="date" class="form-control" id="fecha" name="fecha" value="${venta.getFechaString()}" >
     </div>
      <div class="form-group my-3">
-        <button type="submit" class="btn btn-primary">Guardar</button>
+         <button type="submit" class="btn btn-primary">Guardar</button>
+         <a href="${pageContext.request.contextPath}/ventas?id=${venta.idEmpleado}" class="btn btn-secondary">Cancelar</a>
     </div>
 </form>
 <jsp:include page="/layout/footer.jsp"></jsp:include>

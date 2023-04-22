@@ -3,7 +3,8 @@ package models;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
-import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Entity
 @Table(name = "ventas", schema = "lab2marco")
@@ -87,5 +88,10 @@ public class VentasEntity {
 
     public void setEmpleadosByIdEmpleado(EmpleadosEntity empleadosByIdEmpleado) {
         this.empleadosByIdEmpleado = empleadosByIdEmpleado;
+    }
+
+    public String getFechaString() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(fechaventa);
     }
 }

@@ -12,7 +12,9 @@
 <h1 class="mb-3" style="text-align: center">Ventas</h1>
 
 <form action="${pageContext.request.contextPath}/ventas/save" method="post">
-    <input type="hidden" name="idempleado" value="${id}">
+    <c:if test="${pageContext.request.getParameter('id') != null}">
+        <input type="number" name="idEmpleado" id="idEmpleado" value="${pageContext.request.getParameter('id')}" hidden="hidden">
+    </c:if>
     <div class="row">
         <div class="col">
             <div class="form-group my-3">
@@ -28,13 +30,13 @@
         </div>
         <div class="col">
             <div class="form-group my-3">
-                <button type="submit" class="btn btn-primary" >Guardar</button>
+                <button type="submit" class="btn btn-primary mt-4">Guardar</button>
             </div>
         </div>
     </div>
 </form>
 
-<table class="table table-striped table-hover mt-2">
+<table id="ventasTable" class="table table-striped table-hover mt-2">
     <thead>
     <tr>
         <th scope="col">ID</th>
@@ -52,8 +54,9 @@
                 <td>${venta.idVenta}</td>
                 <td>${venta.getFechaString()}</td>
                 <td>${venta.empleadosByIdEmpleado.nombre}</td>
+                <td>${venta.totalventa}</td>
                 <td>
-                    <a href="${pageContext.request.contextPath}/ventas/edit?id=${venta.idVentas}" class="btn btn-primary">Editar</a>
+                    <a href="${pageContext.request.contextPath}/ventas/edit?id=${venta.idVenta}" class="btn btn-primary">Editar</a>
                     <a href="${pageContext.request.contextPath}/ventas/delete?id=${venta.idVenta}" class="btn btn-danger">Eliminar</a>
                 </td>
             </tr>
@@ -66,5 +69,9 @@
     </c:if>
     </tbody>
 </table>
-
+<script>
+    $(document).ready(function() {
+        $('#ventasTable').DataTable();
+    } );
+</script>
 <jsp:include page="/layout/footer.jsp"></jsp:include>

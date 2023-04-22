@@ -21,10 +21,11 @@
     </div>
     <div class="form-group my-3">
         <label for="salario">Salario</label>
-        <input type="number" class="form-control" id="salario" name="salario" placeholder="Salario" required>
+        <input type="number" min="0" step="0.01" class="form-control" id="salario" name="salario" placeholder="Salario" required>
     </div>
     <div class="form-group my-3">
         <button type="submit" class="btn btn-primary">Guardar</button>
+        <a href="${pageContext.request.contextPath}/empleados" class="btn btn-secondary">Cancelar</a>
     </div>
 </form>
 <jsp:include page="/layout/footer.jsp"></jsp:include>

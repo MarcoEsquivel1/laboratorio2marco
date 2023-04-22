@@ -11,7 +11,7 @@
 
 <h1 class="mb-3" style="text-align: center">Empleados</h1>
 <a href="${pageContext.request.contextPath}/empleados/create" class="btn btn-success my-3 btn-sm">Agregar</a>
-    <table class="table table-striped table-hover">
+    <table id="empleadosTable" class="table table-striped table-hover">
         <thead>
         <tr>
             <th scope="col">ID</th>
@@ -31,10 +31,15 @@
                 <td>
                     <a href="${pageContext.request.contextPath}/ventas?id=${empleado.idEmpleado}" class="btn btn-primary">Ventas</a>
                     <a href="${pageContext.request.contextPath}/empleados/edit?id=${empleado.idEmpleado}" class="btn btn-primary">Editar</a>
-                    <a href="${pageContext.request.contextPath}/empleados/edit?id=${empleado.idEmpleado}" class="btn btn-danger">Eliminar</a>
+                    <a href="${pageContext.request.contextPath}/empleados/delete?id=${empleado.idEmpleado}" class="btn btn-danger">Eliminar</a>
                 </td>
             </tr>
         </c:forEach>
         </tbody>
     </table>
+    <script>
+        $(document).ready(function () {
+            $('#empleadosTable').DataTable();
+        });
+    </script>
 <jsp:include page="/layout/footer.jsp"></jsp:include>
