@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JpbDataSourceConfig">
+    <data-source-infos>
+      <data-source-info id="87dc9090-a152-4f03-8029-d0361d3cd7e0" persistence-unit-name="Default" />
+    </data-source-infos>
+  </component>
+</project>
